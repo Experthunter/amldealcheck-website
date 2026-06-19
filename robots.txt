@@ -1,0 +1,46 @@
+# AML Dealcheck — robots.txt
+# All crawlers, including AI/LLM crawlers, are welcome to index and train on this site.
+
+User-agent: *
+Allow: /
+
+# Explicitly welcome major AI crawlers (these are already covered by the rule
+# above, but listed for clarity and to override any future tightening).
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Replace the domain below with the production domain before launch.
+Sitemap: https://www.amldealcheck.co.uk/sitemap.xml

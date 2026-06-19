@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a demo — AML Dealcheck | Compliance On Demand</title>
+<meta name="description" content="Request a demo of AML Dealcheck. Tell us about your firm and we'll arrange a walkthrough on your own deals.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contact">
+
+<!-- ===== NAV (injected by js/components.js) ===== -->
+<div id="site-header"></div>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="dark dark-grid" style="padding-top:72px;padding-bottom:56px">
+    <div class="wrap-narrow">
+      <div class="eyebrow aqua" style="margin-bottom:14px">Get in touch</div>
+      <h1 style="font-weight:900;font-size:48px;line-height:1.08;color:#fff;letter-spacing:-.02em;max-width:680px">Request a demo of AML&nbsp;Dealcheck</h1>
+      <p style="color:#bcd0d2;font-size:18px;margin-top:18px;max-width:560px">We care about you and your business. Tell us a little about your firm and we'll arrange a walkthrough.</p>
+    </div>
+  </section>
+
+  <!-- ===== FORM + INFO ===== -->
+  <section class="section">
+    <div class="wrap-narrow grid-2" style="grid-template-columns:1.3fr 1fr;align-items:start">
+
+      <div class="form-card">
+        <form id="demoForm" novalidate>
+          <div class="form-row">
+            <div><label for="f-name">Full name</label><input id="f-name" type="text" required></div>
+            <div><label for="f-company">Company</label><input id="f-company" type="text" required></div>
+          </div>
+          <div class="form-row">
+            <div><label for="f-email">Email</label><input id="f-email" type="email" required></div>
+            <div><label for="f-phone">Phone</label><input id="f-phone" type="tel"></div>
+          </div>
+          <div class="field">
+            <label for="f-role">I am a…</label>
+            <select id="f-role">
+              <option>Estate agent</option>
+              <option>Solicitor / law firm</option>
+              <option>Broker</option>
+              <option>Chartered surveyor</option>
+              <option>Property company</option>
+              <option>Other regulated business</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">How can we help?</label>
+            <textarea id="f-msg" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-teal btn-block" style="padding:15px;border-radius:10px">Request a demo</button>
+        </form>
+
+        <div class="form-success hidden" id="formSuccess">
+          <div class="tick">✓</div>
+          <h3>Thank you</h3>
+          <p>Your request has been received. A member of the team will be in touch within one working day to arrange your demo.</p>
+          <button class="btn btn-sm" id="resetForm" style="margin-top:24px;background:var(--mist);border:1px solid var(--line);color:var(--ink)">Send another</button>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <h3>Compliance On Demand</h3>
+        <p class="lead">If you would like more information or advice on any of our services, please get in touch.</p>
+        <div class="cinfo">
+          <div class="ci"><div class="ic">T</div><div><div class="lbl">Telephone</div><div class="val">+44 20 3963 9966</div></div></div>
+          <div class="ci"><div class="ic">M</div><div><div class="lbl">Mobile</div><div class="val">+44 7413 059574</div></div></div>
+          <div class="ci"><div class="ic">E</div><div><div class="lbl">Email</div><div class="val">hello@complianceondemand.co.uk</div></div></div>
+        </div>
+        <div class="secure-box">
+          <div class="t">Secure by design</div>
+          <p>Your data is handled on the Microsoft Azure Southern England secure platform, in line with UK regulatory and GDPR requirements.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER (injected by js/components.js) ===== -->
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/consent.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
