@@ -14,6 +14,27 @@
     });
   }
 
+  /* ---------- Hero video (click-to-load, privacy-friendly) ---------- */
+  var heroVideo = document.getElementById('heroVideo');
+  if (heroVideo && heroVideo.getAttribute('data-yt')) {
+    var loadVideo = function () {
+      var id = heroVideo.getAttribute('data-yt');
+      if (!id || heroVideo.querySelector('iframe')) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1';
+      iframe.title = 'AML Dealcheck overview';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      heroVideo.innerHTML = '';
+      heroVideo.appendChild(iframe);
+      heroVideo.style.cursor = 'default';
+    };
+    heroVideo.addEventListener('click', loadVideo);
+    heroVideo.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVideo(); }
+    });
+  }
+
   /* ---------- FAQ accordion ---------- */
   var faqList = document.getElementById('faqList');
   if (faqList) {
@@ -39,14 +60,14 @@
   var stepper = document.getElementById('stepper');
   if (stepper) {
     var STEPS = [
-      { title: 'Transaction Details', desc: 'Capture the deal — a sale, a purchase or a letting — with its values, dates and the parties involved.', docs: ['Letter of instruction', 'Terms of business', 'Source of the transaction'] },
-      { title: 'Property Info', desc: 'Where the matter involves real estate, record the property, its title and its tenure.', docs: ['Title register / deeds', 'Tenure & lease details', 'EPC reference'] },
-      { title: 'Client / Counterparty DD', desc: 'Verify identity and run due-diligence checks on every customer and transaction counterparty.', docs: ['Photo ID', 'Proof of address', 'Counterparty confirmation'] },
-      { title: 'Corporate Structure', desc: 'Map ownership all the way down to the ultimate beneficial owners of any corporate party.', docs: ['Certificate of incorporation', 'Shareholder register', 'Beneficial-owner declaration'] },
-      { title: 'Management Structure', desc: 'Identify the directors, officers and controllers standing behind each entity.', docs: ['Register of directors', 'Authorised signatory list', 'Board / org structure'] },
-      { title: 'Risk Assessment', desc: "AML Dealcheck's AI logic scores the money-laundering risk across the whole matter.", docs: ['PEP & sanctions screening', 'Source of funds', 'Source of wealth'] },
-      { title: 'Final Review', desc: 'Your Money Laundering Reporting Officer signs off, with a complete audit trail behind every decision.', docs: ['Reviewer notes', 'MLRO approval', 'Audit trail'] },
-      { title: 'Final Reports', desc: 'Generate the compliant report pack — ready to file, share and defend to the regulator.', docs: ['AML due-diligence report', 'Risk-assessment summary', 'Document checklist'] }
+      { title: 'Transaction Details', desc: 'Capture the deal — a sale, purchase or letting — with its values, dates and parties involved.' },
+      { title: 'Property Info', desc: 'Where the matter involves real estate, record the property, its title and its tenure.' },
+      { title: 'Client / Counterparty DD', desc: 'Verify identity and run due-diligence checks on every client and transaction counterparty.' },
+      { title: 'Corporate Structure', desc: 'Map ownership all the way down to the ultimate beneficial owners of any corporate party.' },
+      { title: 'Management Structure', desc: 'Identify the directors, officers and controllers standing behind each entity.' },
+      { title: 'Risk Assessment', desc: "AML Dealcheck's AI logic scores the money-laundering risk across the whole matter, and will advise if a source of funds and source of wealth check needs to be completed." },
+      { title: 'Final Review', desc: 'Based on the information provided, the system decides whether Simplified, Standard or Enhanced due diligence is applied — then your MLRO signs off, with a complete audit trail behind every decision.' },
+      { title: 'Final Reports', desc: 'Generate the compliant report pack — ready to file, share and defend to the regulator.' }
     ];
     var total = STEPS.length;
     var current = 0;
@@ -57,8 +78,26 @@
     var elOf = document.getElementById('stepOf');
     var elTitle = document.getElementById('stepTitle');
     var elDesc = document.getElementById('stepDesc');
-    var elDocs = document.getElementById('stepDocs');
     var elBar = document.getElementById('progressBar');
+    var elPanel = document.querySelector('.panel');
+
+    // Lock the panel to the tallest step so the layout below never jumps.
+    function sizePanel() {
+      if (!elPanel) return;
+      elPanel.style.minHeight = '';
+      var savedTitle = elTitle.textContent, savedDesc = elDesc.textContent, savedAnim = elTitle.style.animation;
+      elTitle.style.animation = 'none';
+      var max = 0;
+      STEPS.forEach(function (s) {
+        elTitle.textContent = s.title;
+        elDesc.textContent = s.desc;
+        if (elPanel.offsetHeight > max) max = elPanel.offsetHeight;
+      });
+      elTitle.textContent = savedTitle;
+      elDesc.textContent = savedDesc;
+      elTitle.style.animation = savedAnim;
+      elPanel.style.minHeight = max + 'px';
+    }
 
     // build chips
     var chips = [];
@@ -80,13 +119,6 @@
       elDesc.textContent = s.desc;
       // restart fade animation
       elTitle.style.animation = 'none'; void elTitle.offsetWidth; elTitle.style.animation = '';
-      var docsHtml = '';
-      s.docs.forEach(function (d) {
-        docsHtml += '<div class="doc"><span class="di">&#8615;</span><span>' + d + '</span></div>';
-      });
-      elDocs.className = 'docs fade-up';
-      void elDocs.offsetWidth;
-      elDocs.innerHTML = docsHtml;
       elBar.style.width = Math.round(((i + 1) / total) * 100) + '%';
       chips.forEach(function (c, ci) { c.classList.toggle('active', ci === i); });
     }
@@ -97,6 +129,12 @@
     timer = setInterval(tick, 3400);
 
     render(0);
+    sizePanel();
+    var sizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(sizeTimer);
+      sizeTimer = setTimeout(sizePanel, 150);
+    });
   }
 
   /* ---------- Contact form ---------- */

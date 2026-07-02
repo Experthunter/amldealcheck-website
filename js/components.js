@@ -19,7 +19,7 @@
         '<nav class="nav-links" id="navLinks">' +
           '<a class="nav-link' + active('home') + '" href="index.html">Home</a>' +
           '<a class="nav-link' + active('product') + '" href="aml-dealcheck.html">AML Dealcheck</a>' +
-          '<a class="nav-link' + active('contact') + '" href="contact.html">Contact</a>' +
+          '<a class="nav-link' + active('about') + '" href="about.html">About us</a>' +
           '<a class="btn btn-teal btn-sm" href="contact.html">Request a demo</a>' +
         '</nav>' +
       '</div>' +
@@ -32,11 +32,18 @@
         '<nav class="flinks">' +
           '<a href="index.html">Home</a>' +
           '<a href="aml-dealcheck.html">AML Dealcheck</a>' +
-          '<a href="contact.html">Contact</a>' +
-          '<button type="button" class="flink-btn" id="cookieSettings">Cookie settings</button>' +
+          '<a href="about.html">About us</a>' +
+          '<a href="contact.html">Request a demo</a>' +
         '</nav>' +
       '</div>' +
-      '<div class="legal"><div class="wrap inner">© 2026 Compliance On Demand. AML Dealcheck is hosted on the Microsoft Azure Southern England secure platform.</div></div>' +
+      '<div class="legal"><div class="wrap legalrow">' +
+        '<div class="lcopy">© 2026 Compliance On Demand. AML Dealcheck is hosted on the Microsoft Azure Southern England secure platform.</div>' +
+        '<nav class="llinks">' +
+          '<a href="legal.html">Legal &amp; Privacy Policy</a>' +
+          '<a href="legal.html#msa">Master Service Agreement</a>' +
+          '<button type="button" class="flink-btn" id="cookieSettings">Cookie settings</button>' +
+        '</nav>' +
+      '</div></div>' +
     '</footer>';
 
   var h = document.getElementById('site-header');
