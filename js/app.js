@@ -60,14 +60,14 @@
   var stepper = document.getElementById('stepper');
   if (stepper) {
     var STEPS = [
-      { title: 'Transaction Details', desc: 'Capture the deal — a sale, purchase or letting — with its values, dates and parties involved.' },
+      { title: 'Transaction Details', desc: "Capture the deal, whether it's a sale, purchase or letting, with its values, dates and parties involved." },
       { title: 'Property Info', desc: 'Where the matter involves real estate, record the property, its title and its tenure.' },
       { title: 'Client / Counterparty DD', desc: 'Verify identity and run due-diligence checks on every client and transaction counterparty.' },
-      { title: 'Corporate Structure', desc: 'Map ownership all the way down to the ultimate beneficial owners of any corporate party.' },
+      { title: 'Corporate Structure', desc: 'Map ownership all the way up to the ultimate beneficial owners of any corporate party.' },
       { title: 'Management Structure', desc: 'Identify the directors, officers and controllers standing behind each entity.' },
-      { title: 'Risk Assessment', desc: "AML Dealcheck's AI logic scores the money-laundering risk across the whole matter, and will advise if a source of funds and source of wealth check needs to be completed." },
-      { title: 'Final Review', desc: 'Based on the information provided, the system decides whether Simplified, Standard or Enhanced due diligence is applied — then your MLRO signs off, with a complete audit trail behind every decision.' },
-      { title: 'Final Reports', desc: 'Generate the compliant report pack — ready to file, share and defend to the regulator.' }
+      { title: 'Risk Assessment', desc: "AML Dealcheck's AI logic rates the money-laundering risk across the whole matter, and will advise if a source of funds and source of wealth check needs to be completed." },
+      { title: 'Final Review', desc: 'Based on the information provided, the system decides whether Simplified, Standard or Enhanced due diligence is applied, then your MLRO signs off, with a complete audit trail behind every decision.' },
+      { title: 'Final Reports', desc: 'Generate the compliant report pack, ready to file, share and justify to the regulator.' }
     ];
     var total = STEPS.length;
     var current = 0;

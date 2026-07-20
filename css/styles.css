@@ -60,6 +60,8 @@ button{font-family:inherit}
 .btn-dark:hover{background:var(--petrol-2)}
 .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
 .btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-outline{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn-outline:hover{background:var(--mist)}
 .btn-sm{padding:11px 20px;font-size:15px}
 .btn-md{padding:14px 28px;font-size:16px}
 .btn-lg{padding:16px 34px;font-size:17px}
@@ -205,8 +207,8 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.01em}
 .legal-toc{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 8px}
 .legal-toc a{font-family:var(--disp);font-weight:600;font-size:14px;color:var(--teal-d);background:var(--teal-soft);padding:9px 15px;border-radius:999px}
 .legal-toc a:hover{background:var(--teal);color:#fff}
-.legal-note{background:var(--mist);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:12px;padding:18px 20px;margin:20px 0}
-.legal-note p{font-size:14.5px;color:var(--sub);margin:0}
+.legal-doc-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:14.5px;color:var(--teal-d);background:var(--teal-soft);padding:11px 18px;border-radius:10px;margin:6px 0 8px}
+.legal-doc-link:hover{background:var(--teal);color:#fff}
 
 /* =========================== PRICING =========================== */
 .price-card{background:var(--petrol);border-radius:18px;padding:40px;color:#fff;background-image:radial-gradient(500px 300px at 100% 0,rgba(0,178,178,.25),transparent)}
@@ -219,6 +221,17 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.01em}
 .price-card .plist{display:flex;flex-direction:column;gap:12px;font-size:15.5px;color:#dbe9ea}
 .price-card .plist div{display:flex;gap:10px}
 .price-card .plist b{color:var(--teal);font-weight:800}
+
+.plans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:920px;margin:0 auto}
+.plan-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:40px 36px;display:flex;flex-direction:column}
+.plan-card.featured{border-color:var(--teal);box-shadow:0 16px 54px rgba(0,178,178,.14)}
+.plan-name{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.plan-price{font-family:var(--disp);font-weight:900;font-size:32px;margin:14px 0 4px;color:var(--ink)}
+.plan-note{color:var(--slate);font-size:13.5px;margin-bottom:22px}
+.plan-list{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;flex:1}
+.plan-list div{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--sub)}
+.plan-list b{color:var(--teal);font-weight:800;flex:none}
+@media(max-width:700px){.plans-grid{grid-template-columns:1fr}}
 
 .checks{list-style:none;display:flex;flex-direction:column;gap:12px}
 .checks li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink)}

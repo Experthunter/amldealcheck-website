@@ -20,6 +20,8 @@
           '<a class="nav-link' + active('home') + '" href="index.html">Home</a>' +
           '<a class="nav-link' + active('product') + '" href="aml-dealcheck.html">AML Dealcheck</a>' +
           '<a class="nav-link' + active('about') + '" href="about.html">About us</a>' +
+          '<a class="nav-link' + active('pricing') + '" href="pricing.html">Pricing</a>' +
+          '<a class="btn btn-outline btn-sm" href="#">Customer login</a>' +
           '<a class="btn btn-teal btn-sm" href="contact.html">Request a demo</a>' +
         '</nav>' +
       '</div>' +
@@ -33,6 +35,7 @@
           '<a href="index.html">Home</a>' +
           '<a href="aml-dealcheck.html">AML Dealcheck</a>' +
           '<a href="about.html">About us</a>' +
+          '<a href="pricing.html">Pricing</a>' +
           '<a href="contact.html">Request a demo</a>' +
         '</nav>' +
       '</div>' +
